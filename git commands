@@ -1,0 +1,69 @@
+git --version
+git config --global user.name "Bugs Bunny" [it set for all the projects you work with]
+git config --global user.email bugs@gmail.com
+git config --global push.default simple
+gti config --list
+
+git init --bare  [ cd /c/user/GIT/Central.git , .git -> bare repository ]
+git clone <remote><local> [ local repository contains working file and .git dir ]
+git status [ what is in wd and staging area ]
+git diff   [ what is staged and in wd modifiied and unstaged ]
+git add . [ Add all the modified files in w.d to rep]
+git commit -m "this is our first commit"
+git log [list of commit id's]
+git log -number [lastest to oldest commits]
+git log -1 [latest commit we are working ]
+git log --oneline [short form of the commit]
+git log --oneline -2
+git log --oneline --grep "file" [ it will display the commitid which having file in the commit msg]
+git show <commit id>
+
+git push [ push the changes from local to central repos]
+git pull [pull the changes from central to local repos]
+.gitignore [files added to this wont add to stage when we run git add, it will be excluded]
+
+git branch [ it will list all the branches in the repository ]
+git branch <new branch name>
+git checkout win [ switch to other branch ]
+git diff master <your branch> [ diff between branches ]
+git merge <source_branch> <destination_branch> [Note : Merge Conflicts we need to clear ]
+git cherry-pick <commitid> [ merge from source to destination with specific commit id ]
+git branch -a [ to see the branches obtained from remote ]
+git push -u --all [ it will push all the branches to central repo ] Note: until we checkout to new branch, it is not visible in central repo
+
+git stash [it will take the backup of the changes done to the files and will undo the changes to the normal what is there before changing those files]
+git stash list [list all the backups ]
+stash@ = "Idea 4", "Idea 3", "Idea 2", "Idea 1"
+			0		1			2		3
+git stash apply stash@{1}  [ apply will take the changes from stash area and changes done in workspace files]
+git stash clear [once commited the changes,  clear the stash files]
+
+git reset [ Before comitting the file, it will remove the file in staging area and undo the changes in working directory ]
+git reset --soft [ it will move the head ref from temp commit id (file which is in staging area will have temp commit id)to before commit head pointer ]
+git reset --mixed [ it will move the head pointer and reset the file in staging area]
+git reset --hard [ it will move the head pointer , reset the file in staging area and working tree to the new head (undo the changes to before) ]
+soft (repository), mixed(repository & staging area), hard (repository, staging area & working directory)
+
+git revert <commit id> [ when we want to undo the changes to back, if an issue occur with specific commit id. it will create a new commit why we have undo it ]
+git checkout <commit id> [when we want a data of specific commit in working directory and to point the header position to that specific commit]
+git checkout branch [ it will move to the header point we are working on ]
+
+git rm filename [ add to stage and commit ]
+git clean -n [-n stands for dry run, it will delete all the untracked files, which is newly created ] instead of adding all the files in .gitignore
+git clean -f [forcably clean everything ]
+
+git tag -a <pattern or name> -m 'comment' <commitid> [ attach a tag to the commit with specific naming convention to recall what is done in that specific release ]
+git tag [ all the tags it will list ]
+git show <tag or commit id>
+
+one product can have many tags but one tag cannot assign to two products
+git push --tags [ push the tags to central repository ]
+git tag -d <tag> [ delete a specific tag ]
+
+
+
+
+
+
+
+
